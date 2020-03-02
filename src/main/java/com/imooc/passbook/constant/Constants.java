@@ -134,7 +134,11 @@ public class Constants {
         /** comments type */
         public static final String TYPE = "type";
 
+        /** PassTemplate RowKey, if it is for app, the value is -1 */
         public static final String TEMPLATE_ID = "template_id";
+
+        /** comment content */
+        public static final String COMMENT = "comment";
 
 
 
