@@ -42,6 +42,6 @@ public class PassTemplateRowMapper implements RowMapper<PassTemplate> {
         passTemplate.setLimit(Bytes.toLong(result.getValue(FAMILY_C, LIMIT)));
         passTemplate.setStart(DateUtils.parseDate(Bytes.toString(result.getValue(FAMILY_C, START)), patterns));
         passTemplate.setEnd(DateUtils.parseDate(Bytes.toString(result.getValue(FAMILY_C, END)), patterns));
-        return null;
+        return passTemplate;
     }
 }
