@@ -3,21 +3,22 @@ package com.imooc.passbook.vo;
 import com.imooc.passbook.entity.Merchants;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * <h1>coupon sample info</h1>
+ * <h1>the info of coupon which user get</h1>
  */
-@EqualsAndHashCode
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PassTemplateInfo {
+public class PassInfo {
 
-    /** coupon sample */
+    /** coupon */
+    private Pass pass;
+
+    /** coupon template */
     private PassTemplate passTemplate;
 
-    /** merchant sample */
+    /** related merchant */
     private Merchants merchants;
 }
