@@ -23,16 +23,16 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * <h1>获取库存信息, 只返回用户没有领取的</h1>
+ * <h1>get inventory info, only return un-received coupon</h1>
  */
 @Slf4j
 @Service
 public class InventoryServiceImpl implements IInventoryService {
 
-    /** Hbase 客户端 */
+    /** Hbase client */
     private final HbaseTemplate hbaseTemplate;
 
-    /** Merchants Dao 接口 */
+    /** Merchants Dao interface */
     private final MerchantsDao merchantsDao;
 
     private final IUserPassService userPassService;
@@ -65,8 +65,8 @@ public class InventoryServiceImpl implements IInventoryService {
     }
 
     /**
-     * <h2>获取系统中可用的优惠券</h2>
-     * @param excludeIds 需要排除的优惠券 ids
+     * <h2>get available coupon from system</h2>
+     * @param excludeIds already received coupon ids
      * @return {@link PassTemplate}
      * */
     private List<PassTemplate> getAvailablePassTemplate(List<String> excludeIds) {
@@ -115,7 +115,7 @@ public class InventoryServiceImpl implements IInventoryService {
     }
 
     /**
-     * <h2>构造优惠券的信息</h2>
+     * <h2>generate coupon info</h2>
      * @param passTemplates {@link PassTemplate}
      * @return {@link PassTemplateInfo}
      * */

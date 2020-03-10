@@ -14,7 +14,7 @@ spring:
   data:
     hbase:
       quorum: 127.0.0.1:2181
-      rootDir: file:///Users/
+      rootDir: file:///Users/chrischen/Documents/hbase-1.4.13/hbase_data
       nodeParent: /hbase
   redis:
     host: 127.0.0.1

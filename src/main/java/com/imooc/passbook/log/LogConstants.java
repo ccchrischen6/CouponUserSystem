@@ -19,5 +19,6 @@ public class LogConstants {
         public static final String GAIN_PASS_TEMPLATE = "GainPassTemplate";
         public static final String CREATE_FEEDBACK = "CreateFeedback";
         public static final String GET_FEEDBACK = "GetFeedback";
+        public static final String CREATE_USER = "CreateUser";
     }
 }
