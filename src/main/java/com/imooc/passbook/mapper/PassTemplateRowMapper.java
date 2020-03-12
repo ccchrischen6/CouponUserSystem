@@ -38,10 +38,11 @@ public class PassTemplateRowMapper implements RowMapper<PassTemplate> {
         passTemplate.setHasToken(Bytes.toBoolean(result.getValue(FAMILY_B, HAS_TOKEN)));
         passTemplate.setBackground(Bytes.toInt(result.getValue(FAMILY_B, BACKGROUND)));
 
-        String[] patterns = new String []{"yyyy-mm-dd"};
+        String[] patterns = new String []{"yyyy-MM-dd"};
         passTemplate.setLimit(Bytes.toLong(result.getValue(FAMILY_C, LIMIT)));
         passTemplate.setStart(DateUtils.parseDate(Bytes.toString(result.getValue(FAMILY_C, START)), patterns));
         passTemplate.setEnd(DateUtils.parseDate(Bytes.toString(result.getValue(FAMILY_C, END)), patterns));
         return passTemplate;
     }
+
 }

@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * <h1>创建用户服务</h1>
+ * <h1>create user service</h1>
  */
 @Slf4j
 @RestController
 @RequestMapping("/passbook")
 public class CreateUserController {
 
-    /** 创建用户服务 */
+    /** create user service */
     private final IUserService userService;
 
     /** HttpServletRequest */

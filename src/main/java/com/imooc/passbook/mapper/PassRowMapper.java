@@ -7,8 +7,6 @@ import org.apache.commons.lang.time.DateUtils;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.util.Bytes;
 
-import javax.swing.tree.TreePath;
-
 /**
  * <h1>HBase Pass Row to Pass Object</h1>
  */
@@ -17,7 +15,7 @@ public class PassRowMapper implements RowMapper<Pass> {
     private static byte[] USER_ID = Constants.PassTable.USER_ID.getBytes();
     private static byte[] TEMPLATE_ID = Constants.PassTable.TEMPLATE_ID.getBytes();
     private static byte[] TOKEN = Constants.PassTable.TOKEN.getBytes();
-    private static byte[] ASSIGNED_DATE = Constants.PassTable.ASSIGN_DATE.getBytes();
+    private static byte[] ASSIGNED_DATE = Constants.PassTable.ASSIGNED_DATE.getBytes();
     private static byte[] CON_DATE = Constants.PassTable.CON_DATE.getBytes();
 
     @Override
@@ -27,7 +25,7 @@ public class PassRowMapper implements RowMapper<Pass> {
         pass.setTemplateId(Bytes.toString(result.getValue(FAMILY_I, TEMPLATE_ID)));
         pass.setToken(Bytes.toString(result.getValue(FAMILY_I, TOKEN)));
 
-        String[] patterns = new String[] {"yyyy-mm-dd"};
+        String[] patterns = new String[] {"yyyy-MM-dd"};
         pass.setAssignedDate(DateUtils.parseDate(Bytes.toString(result.getValue(FAMILY_I, ASSIGNED_DATE)), patterns));
 
         String conDateStr = Bytes.toString(result.getValue(FAMILY_I, CON_DATE));
@@ -37,7 +35,7 @@ public class PassRowMapper implements RowMapper<Pass> {
         else {
             pass.setConDate(DateUtils.parseDate(conDateStr, patterns));
         }
-
+        pass.setRowKey(Bytes.toString(result.getRow()));
         return pass;
     }
 }

@@ -110,7 +110,7 @@ public class Constants {
         public static final String TOKEN = "token";
 
         /** the date it was received */
-        public static final String ASSIGN_DATE = "assign_date";
+        public static final String ASSIGNED_DATE = "assign_date";
 
         /** the date it was consumed */
         public static final String CON_DATE = "con_date";

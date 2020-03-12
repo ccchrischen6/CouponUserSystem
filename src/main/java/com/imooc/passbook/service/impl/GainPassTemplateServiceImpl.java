@@ -58,6 +58,8 @@ public class GainPassTemplateServiceImpl implements IGainPassTemplateService {
                     passTemplateId,
                     new PassTemplateRowMapper()
             );
+
+
         } catch (Exception ex) {
             log.error("Gain PassTemplate Error: {}",
                     JSON.toJSONString(request.getPassTemplate()));
@@ -115,7 +117,7 @@ public class GainPassTemplateServiceImpl implements IGainPassTemplateService {
         byte[] USER_ID = Constants.PassTable.USER_ID.getBytes();
         byte[] TEMPLATE_ID = Constants.PassTable.TEMPLATE_ID.getBytes();
         byte[] TOKEN = Constants.PassTable.TOKEN.getBytes();
-        byte[] ASSIGNED_DATE = Constants.PassTable.ASSIGN_DATE.getBytes();
+        byte[] ASSIGNED_DATE = Constants.PassTable.ASSIGNED_DATE.getBytes();
         byte[] CON_DATE = Constants.PassTable.CON_DATE.getBytes();
 
         List<Mutation> datas = new ArrayList<>();

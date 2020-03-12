@@ -111,7 +111,6 @@ public class InventoryServiceImpl implements IInventoryService {
                 availablePassTemplates.add(validTemplate);
             }
         }
-        log.info("CCCCC - getAvailablePassTemplate: " + JSON.toJSONString(availablePassTemplates.toString()));
 
         return availablePassTemplates;
     }
@@ -127,6 +126,8 @@ public class InventoryServiceImpl implements IInventoryService {
         List<Integer> merchantsIds = passTemplates.stream().map(
                 PassTemplate::getId
         ).collect(Collectors.toList());
+
+
         List<Merchants> merchants = merchantsDao.findByIdIn(merchantsIds);
         merchants.forEach(m -> merchantsMap.put(m.getId(), m));
 
@@ -143,7 +144,6 @@ public class InventoryServiceImpl implements IInventoryService {
 
             result.add(new PassTemplateInfo(passTemplate, mc));
         }
-        log.info("CCCCCC - buildPassTemplateInfo");
 
         return result;
     }
