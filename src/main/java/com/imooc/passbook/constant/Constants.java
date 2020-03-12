@@ -11,7 +11,7 @@ public class Constants {
     public static final String TEMPLATE_TOPIC = "merchants-template";
 
     /** the directory of files */
-    public static final String TOKEN_DIR = "/tmp/token";
+    public static final String TOKEN_DIR = "/tmp/token/";
 
     /** used token suffix */
     public static final String USED_TOKEN_SUFFIX = "_";

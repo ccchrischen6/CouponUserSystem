@@ -37,6 +37,7 @@ public class TokenUploadController {
         this.redisTemplate = redisTemplate;
     }
 
+    //153fa14e7b204fd81df0c3006e925a4b
     @GetMapping("/upload")
     public String upload() {
         return "upload";
@@ -57,8 +58,12 @@ public class TokenUploadController {
         try {
             File cur = new File(Constants.TOKEN_DIR + merchantsId);
             if (!cur.exists()) {
+                cur.mkdir();
                 log.info("Create File: {}", cur.mkdir());
             }
+
+            log.info("cur :" + cur.toString());
+
             Path path = Paths.get(Constants.TOKEN_DIR, merchantsId, passTemplateId);
             Files.write(path, file.getBytes());
 

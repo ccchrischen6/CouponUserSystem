@@ -2,7 +2,7 @@ spring:
   application:
     name: Imooc-Pasbook
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/passbook?autoReconnect=true
+    url: jdbc:mysql://127.0.0.1:3306/passbook?autoReconnect=true&serverTimezone=UTC
     username: root
     password: '00000000'
   kafka:

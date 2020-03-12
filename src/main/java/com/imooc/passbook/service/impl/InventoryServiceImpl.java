@@ -1,5 +1,6 @@
 package com.imooc.passbook.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.imooc.passbook.constant.Constants;
 import com.imooc.passbook.dao.MerchantsDao;
 import com.imooc.passbook.entity.Merchants;
@@ -110,6 +111,7 @@ public class InventoryServiceImpl implements IInventoryService {
                 availablePassTemplates.add(validTemplate);
             }
         }
+        log.info("CCCCC - getAvailablePassTemplate: " + JSON.toJSONString(availablePassTemplates.toString()));
 
         return availablePassTemplates;
     }
@@ -119,7 +121,7 @@ public class InventoryServiceImpl implements IInventoryService {
      * @param passTemplates {@link PassTemplate}
      * @return {@link PassTemplateInfo}
      * */
-    private List<PassTemplateInfo> buildPassTemplateInfo(List<PassTemplate> passTemplates) {
+    private List<PassTemplateInfo> buildPassTemplateInfo (List<PassTemplate> passTemplates) {
 
         Map<Integer, Merchants> merchantsMap = new HashMap<>();
         List<Integer> merchantsIds = passTemplates.stream().map(
@@ -141,6 +143,7 @@ public class InventoryServiceImpl implements IInventoryService {
 
             result.add(new PassTemplateInfo(passTemplate, mc));
         }
+        log.info("CCCCCC - buildPassTemplateInfo");
 
         return result;
     }
