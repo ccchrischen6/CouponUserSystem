@@ -1,0 +1,63 @@
+1. upload coupon token
+    GET: 127.0.0.1:9528/upload
+    merchantsId - 19
+    PassTemplateId: 82de1e43c37f7af650ec73c468df4151
+
+2. create user -- userId 145753
+    POST: 127.0.0.1:9528/passbook/createuser
+    {
+        "baseInfo": {
+            "name": "Chris",
+            "age": 80,
+            "sex": "m"
+        },
+        "otherInfo": {
+            "phone": "9170003212",
+            "address": "Upper West 120TH ST"
+        }
+    }
+
+3. inventory info
+    GET: 127.0.0.1:9528/passbook/inventoryinfo?userId=145753
+
+4. get coupon -- coupon with token
+    POST: 127.0.0.1:9528/passbook/gainpasstemplate
+    {
+        "userId": 145753,
+        "passTemplate": {
+            "id": 19,
+            "title": "CU Coupon-2",
+            "hasToken": true
+        }
+    }
+
+5. userpassinfo
+    GET: 127.0.0.1:9528/passbook/userpassinfo?userId=145753
+
+6. userusedpassinfo
+    GET: 127.0.0.1:9528/passbook/userusedpassinfo?userId=145753
+
+7. userusepass
+    POST: 127.0.0.1:9528/passbook/userusepass
+    {
+        "userId": 145753,
+        "templateId": "82de1e43c37f7af650ec73c468df4151"
+    }
+
+8. create feedback message
+    POST: 127.0.0.1:9528/passbook/createfeedback
+    {
+        "userId": 145753,
+        "type": "app",
+        "templateId": -1,
+        "comment": "CU is the best University"
+    }
+    {
+        "userId": 145753,
+        "type": "pass",
+        "templateId": "82de1e43c37f7af650ec73c468df4151",
+        "comment": "good coupon"
+    }
+
+9. check feedback info
+    GET: 127.0.0.1:9528/passbook/getfeedback?userId=145753
